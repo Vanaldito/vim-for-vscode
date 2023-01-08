@@ -13,6 +13,7 @@ export default function registerEscKeybinding(
           break;
         }
         case "visual": {
+          vscode.commands.executeCommand("cancelSelection");
           vim.changeMode("normal");
           break;
         }

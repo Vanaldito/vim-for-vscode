@@ -2,23 +2,24 @@ import * as vscode from "vscode";
 import { insertCharacter } from "../helpers";
 import { VimState } from "../models";
 
-export default function registerIKeybinding(
+export default function registerVKeybinding(
   context: vscode.ExtensionContext,
   vim: VimState
 ) {
   context.subscriptions.push(
-    vscode.commands.registerCommand("vim-for-vscode.j", () => {
+    vscode.commands.registerCommand("vim-for-vscode.v", () => {
       switch (vim.mode) {
         case "normal": {
-          vscode.commands.executeCommand("cursorDown");
+          vim.changeMode("visual");
           break;
         }
         case "insert": {
-          insertCharacter("j");
+          insertCharacter("v");
           break;
         }
         case "visual": {
-          vscode.commands.executeCommand("cursorDownSelect");
+          vscode.commands.executeCommand("cancelSelection");
+          vim.changeMode("normal");
           break;
         }
       }

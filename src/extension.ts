@@ -6,6 +6,7 @@ import {
   registerJKeybinding,
   registerKKeybinding,
   registerLKeybinding,
+  registerVKeybinding,
 } from "./keybindings";
 import { VimState } from "./models";
 
@@ -61,6 +62,7 @@ export function activate(context: vscode.ExtensionContext) {
   registerJKeybinding(context, vim);
   registerKKeybinding(context, vim);
   registerLKeybinding(context, vim);
+  registerVKeybinding(context, vim);
 
   vscode.window.onDidChangeActiveTextEditor(editor => {
     if (!editor) {

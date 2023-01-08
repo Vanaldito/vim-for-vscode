@@ -17,6 +17,10 @@ export default function registerIKeybinding(
           insertCharacter("h");
           break;
         }
+        case "visual": {
+          vscode.commands.executeCommand("cursorLeftSelect");
+          break;
+        }
       }
     })
   );

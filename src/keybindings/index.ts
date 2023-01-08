@@ -4,3 +4,4 @@ export { default as registerIKeybinding } from "./i";
 export { default as registerJKeybinding } from "./j";
 export { default as registerKKeybinding } from "./k";
 export { default as registerLKeybinding } from "./l";
+export { default as registerVKeybinding } from "./v";
