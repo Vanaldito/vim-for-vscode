@@ -18,6 +18,16 @@
         "command": "vim-for-vscode.i",
         "key": "i",
         "when": "vimActive && editorTextFocus && !editorReadonly"
+      },
+      {
+        "command": "vim-for-vscode.esc",
+        "key": "escape",
+        "when": "vimActive && editorTextFocus && !editorReadonly"
+      },
+      {
+        "command": "vim-for-vscode.esc",
+        "key": "ctrl+[",
+        "when": "vimActive && editorTextFocus && !editorReadonly"
       }
     ]
   },
