@@ -1,6 +1,13 @@
 import * as vscode from "vscode";
 import { changeVimMode } from "./helpers";
-import { registerEscKeybinding, registerIKeybinding } from "./keybindings";
+import {
+  registerEscKeybinding,
+  registerHKeybinding,
+  registerIKeybinding,
+  registerJKeybinding,
+  registerKKeybinding,
+  registerLKeybinding,
+} from "./keybindings";
 import { VimState } from "./models";
 
 export const vim: VimState = {
@@ -13,6 +20,10 @@ export function activate(context: vscode.ExtensionContext) {
 
   registerIKeybinding(context, vim);
   registerEscKeybinding(context, vim);
+  registerHKeybinding(context, vim);
+  registerJKeybinding(context, vim);
+  registerKKeybinding(context, vim);
+  registerLKeybinding(context, vim);
 }
 
 export function deactivate() {}
