@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { changeVimMode, insertCharacter } from "../helpers";
+import { insertCharacter } from "../helpers";
 import { VimState } from "../models";
 
 export default function registerIKeybinding(
@@ -10,7 +10,7 @@ export default function registerIKeybinding(
     vscode.commands.registerCommand("vim-for-vscode.i", () => {
       switch (vim.mode) {
         case "normal": {
-          changeVimMode("insert", vim);
+          vim.changeMode("insert");
           break;
         }
         case "insert": {

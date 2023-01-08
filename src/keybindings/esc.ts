@@ -1,5 +1,4 @@
 import * as vscode from "vscode";
-import { changeVimMode } from "../helpers";
 import { VimState } from "../models";
 
 export default function registerEscKeybinding(
@@ -10,11 +9,11 @@ export default function registerEscKeybinding(
     vscode.commands.registerCommand("vim-for-vscode.esc", () => {
       switch (vim.mode) {
         case "insert": {
-          changeVimMode("normal", vim);
+          vim.changeMode("normal");
           break;
         }
         case "visual": {
-          changeVimMode("normal", vim);
+          vim.changeMode("normal");
           break;
         }
       }
