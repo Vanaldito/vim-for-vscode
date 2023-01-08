@@ -1,19 +1,17 @@
 import * as vscode from "vscode";
+import { changeVimMode } from "./helpers";
+import { registerIKeybinding } from "./keybindings";
+import { VimState } from "./models";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+export const vim: VimState = {
+  mode: "normal",
+};
+
 export function activate(context: vscode.ExtensionContext) {
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
-  console.log(
-    'Congratulations, your extension "vim-for-vscode" is now active!'
-  );
+  vscode.commands.executeCommand("setContext", "vimActive", true);
+  changeVimMode("normal", vim);
 
-  if (vscode.window.activeTextEditor) {
-    vscode.window.activeTextEditor.options.cursorStyle =
-      vscode.TextEditorCursorStyle.Block;
-  }
+  registerIKeybinding(context, vim);
 }
 
-// This method is called when your extension is deactivated
 export function deactivate() {}
