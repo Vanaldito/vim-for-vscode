@@ -41,7 +41,7 @@ export const vim: VimState = {
       }
       case "visual": {
         editorsInfo[editor.document.uri.toString()].mode = "visual";
-        editor.options.cursorStyle = vscode.TextEditorCursorStyle.Block;
+        editor.options.cursorStyle = vscode.TextEditorCursorStyle.Line;
         break;
       }
       case "insert": {
@@ -80,6 +80,14 @@ export function activate(context: vscode.ExtensionContext) {
     }
 
     vim.changeMode(editorsInfo[editor.document.uri.toString()].mode);
+  });
+
+  vscode.window.onDidChangeTextEditorSelection(e => {
+    if (e.selections[0].active.isEqual(e.selections[0].anchor)) {
+      return;
+    }
+
+    vim.changeMode("visual");
   });
 }
 
