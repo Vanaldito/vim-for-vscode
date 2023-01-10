@@ -15,6 +15,11 @@
   "contributes": {
     "keybindings": [
       {
+        "command": "vim-for-vscode.a",
+        "key": "a",
+        "when": "vimActive && editorTextFocus && !editorReadonly"
+      },
+      {
         "command": "vim-for-vscode.i",
         "key": "i",
         "when": "vimActive && editorTextFocus && !editorReadonly"

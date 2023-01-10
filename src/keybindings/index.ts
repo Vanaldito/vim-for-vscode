@@ -1,3 +1,4 @@
+export { default as registerAKeybinding } from "./a";
 export { default as registerEscKeybinding } from "./esc";
 export { default as registerHKeybinding } from "./h";
 export { default as registerIKeybinding } from "./i";

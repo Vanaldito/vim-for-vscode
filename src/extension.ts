@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import {
+  registerAKeybinding,
   registerEscKeybinding,
   registerHKeybinding,
   registerIKeybinding,
@@ -65,6 +66,7 @@ export function activate(context: vscode.ExtensionContext) {
   registerLKeybinding(context, vim);
   registerOKeybinding(context, vim);
   registerVKeybinding(context, vim);
+  registerAKeybinding(context, vim);
 
   vscode.window.onDidChangeActiveTextEditor(editor => {
     if (!editor) {
