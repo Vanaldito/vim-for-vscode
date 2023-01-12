@@ -93,7 +93,9 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
 
-    vim.changeMode("visual");
+    if (vim.mode !== "visual") {
+      vim.changeMode("visual");
+    }
   });
 }
 
