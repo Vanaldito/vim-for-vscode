@@ -15,6 +15,16 @@
   "contributes": {
     "keybindings": [
       {
+        "command": "vim-for-vscode.shift4",
+        "key": "shift+4",
+        "when": "vimActive && editorTextFocus && !editorReadOnly"
+      },
+      {
+        "command": "vim-for-vscode.0",
+        "key": "0",
+        "when": "vimActive && editorTextFocus && !editorReadOnly"
+      },
+      {
         "command": "vim-for-vscode.a",
         "key": "a",
         "when": "vimActive && editorTextFocus && !editorReadonly"

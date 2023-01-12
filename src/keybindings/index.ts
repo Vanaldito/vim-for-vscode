@@ -1,3 +1,4 @@
+export { default as register0Keybinding } from "./0";
 export { default as registerAKeybinding } from "./a";
 export { default as registerEscKeybinding } from "./esc";
 export { default as registerHKeybinding } from "./h";
@@ -6,4 +7,5 @@ export { default as registerJKeybinding } from "./j";
 export { default as registerKKeybinding } from "./k";
 export { default as registerLKeybinding } from "./l";
 export { default as registerOKeybinding } from "./o";
+export { default as registerShift4Keybinding } from "./shift4";
 export { default as registerVKeybinding } from "./v";
