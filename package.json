@@ -70,6 +70,11 @@
         "when": "vimActive && editorTextFocus && !editorReadonly"
       },
       {
+        "command": "vim-for-vscode.p",
+        "key": "p",
+        "when": "vimActive && editorTextFocus && !editorReadonly"
+      },
+      {
         "command": "vim-for-vscode.v",
         "key": "v",
         "when": "vimActive && editorTextFocus && !editorReadonly"

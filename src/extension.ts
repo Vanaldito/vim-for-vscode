@@ -11,6 +11,7 @@ import {
   registerKKeybinding,
   registerLKeybinding,
   registerOKeybinding,
+  registerPKeybinding,
   registerShift4Keybinding,
   registerVKeybinding,
   registerWKeybinding,
@@ -73,6 +74,7 @@ export function activate(context: vscode.ExtensionContext) {
   registerKKeybinding(context, vim);
   registerLKeybinding(context, vim);
   registerOKeybinding(context, vim);
+  registerPKeybinding(context, vim);
   registerVKeybinding(context, vim);
   registerWKeybinding(context, vim);
   register0Keybinding(context, vim);
