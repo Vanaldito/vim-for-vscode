@@ -2,6 +2,8 @@ import * as vscode from "vscode";
 import {
   register0Keybinding,
   registerAKeybinding,
+  registerBKeybinding,
+  registerEKeybinding,
   registerEscKeybinding,
   registerHKeybinding,
   registerIKeybinding,
@@ -11,6 +13,7 @@ import {
   registerOKeybinding,
   registerShift4Keybinding,
   registerVKeybinding,
+  registerWKeybinding,
 } from "./keybindings";
 import { VimState } from "./models";
 
@@ -60,6 +63,9 @@ export function activate(context: vscode.ExtensionContext) {
   vscode.commands.executeCommand("setContext", "vimActive", true);
   vim.changeMode("normal");
 
+  registerAKeybinding(context, vim);
+  registerBKeybinding(context, vim);
+  registerEKeybinding(context, vim);
   registerIKeybinding(context, vim);
   registerEscKeybinding(context, vim);
   registerHKeybinding(context, vim);
@@ -68,7 +74,7 @@ export function activate(context: vscode.ExtensionContext) {
   registerLKeybinding(context, vim);
   registerOKeybinding(context, vim);
   registerVKeybinding(context, vim);
-  registerAKeybinding(context, vim);
+  registerWKeybinding(context, vim);
   register0Keybinding(context, vim);
   registerShift4Keybinding(context, vim);
 

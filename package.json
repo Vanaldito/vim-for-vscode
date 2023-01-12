@@ -30,6 +30,16 @@
         "when": "vimActive && editorTextFocus && !editorReadonly"
       },
       {
+        "command": "vim-for-vscode.b",
+        "key": "b",
+        "when": "vimActive && editorTextFocus && !editorReadonly"
+      },
+      {
+        "command": "vim-for-vscode.e",
+        "key": "e",
+        "when": "vimActive && editorTextFocus && !editorReadonly"
+      },
+      {
         "command": "vim-for-vscode.i",
         "key": "i",
         "when": "vimActive && editorTextFocus && !editorReadonly"
@@ -62,6 +72,11 @@
       {
         "command": "vim-for-vscode.v",
         "key": "v",
+        "when": "vimActive && editorTextFocus && !editorReadonly"
+      },
+      {
+        "command": "vim-for-vscode.w",
+        "key": "w",
         "when": "vimActive && editorTextFocus && !editorReadonly"
       },
       {
