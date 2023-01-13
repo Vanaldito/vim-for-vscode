@@ -58,6 +58,7 @@ export const vim: VimState = {
       }
     }
   },
+  copiedLine: "Hello World",
 };
 
 export function activate(context: vscode.ExtensionContext) {

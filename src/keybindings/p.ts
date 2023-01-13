@@ -2,24 +2,39 @@ import * as vscode from "vscode";
 import { insertCharacter } from "../helpers";
 import { VimState } from "../models";
 
-function pasteLikeVim() {
+async function pasteLikeVim(vim: VimState) {
   const editor = vscode.window.activeTextEditor;
+
   if (!editor) {
     return;
   }
 
-  editor.edit(async editBuilder => {
-    let text = await vscode.env.clipboard.readText();
+  const text = await vscode.env.clipboard.readText();
 
-    if (text.endsWith("\n")) {
+  if (text !== vim.copiedLine) {
+    return vscode.commands.executeCommand("editor.action.clipboardPasteAction");
+  }
+
+  const activeLine = editor.selection.active.line;
+  const numberOfCharacters = editor.document.lineAt(activeLine).text.length;
+
+  if (vim.mode === "normal") {
+    await editor.edit(editBuilder => {
       editBuilder.insert(
-        new vscode.Position(editor.selection.active.line + 1, 0),
-        text
+        new vscode.Position(activeLine, numberOfCharacters + 1),
+        `\n${text}`
       );
-    } else {
-      vscode.commands.executeCommand("editor.action.clipboardPasteAction");
-    }
-  });
+    });
+  } else if (vim.mode === "visual") {
+    await editor.edit(editBuilder => {
+      editBuilder.replace(editor.selection, `\n${text}\n`);
+    });
+
+    vim.changeMode("normal");
+  }
+
+  const position = new vscode.Position(activeLine + 1, 0);
+  editor.selection = new vscode.Selection(position, position);
 }
 
 export default function registerPKeybinding(
@@ -30,7 +45,7 @@ export default function registerPKeybinding(
     vscode.commands.registerCommand("vim-for-vscode.p", () => {
       switch (vim.mode) {
         case "normal": {
-          pasteLikeVim();
+          pasteLikeVim(vim);
           break;
         }
         case "insert": {
@@ -38,8 +53,7 @@ export default function registerPKeybinding(
           break;
         }
         case "visual": {
-          pasteLikeVim();
-          vim.changeMode("normal");
+          pasteLikeVim(vim);
           break;
         }
       }
